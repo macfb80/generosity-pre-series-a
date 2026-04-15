@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generosity™ — Series A | $5M Raise | Water Intelligence OS</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#51B0E6;--blue-d:#2D8EC4;--blue-dim:rgba(81,176,230,0.07);--blue-bd:rgba(81,176,230,0.18);
+  --gray:#A6A8AB;--gray-l:#F0F1F3;--gray-d:#6B7280;
+  --text:#111827;--text2:#374151;--text3:#6B7280;--text4:#9CA3AF;
+  --white:#FFFFFF;--surface:#F8FAFC;
+  --border:#E5E7EB;--border-b:rgba(81,176,230,0.2);
+  --green:#10B981;--amber:#F59E0B;--red:#EF4444;
+  --mono:'IBM Plex Mono',monospace;--font:'Montserrat',sans-serif;
+  --sh:0 2px 12px rgba(0,0,0,0.06),0 1px 3px rgba(0,0,0,0.04);
+  --sh-lg:0 16px 48px rgba(0,0,0,0.10),0 4px 12px rgba(0,0,0,0.05);
+}
+html{scroll-behavior:smooth;font-size:14px}
+body{background:var(--white);color:var(--text);font-family:var(--font);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:60px;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 32px;gap:0}
+.nav-brand{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none}
+.nav-logo{width:32px;height:32px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo svg{width:18px;height:18px}
+.nav-name{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-.01em}
+.nav-name span{color:var(--blue)}
+.nav-sub{font-size:8px;font-weight:700;color:var(--text4);letter-spacing:.14em;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;gap:2px}
+.nav-link{font-size:11px;font-weight:600;padding:6px 14px;border-radius:6px;border:none;cursor:pointer;background:transparent;color:var(--text3);transition:all .14s;font-family:var(--font)}
+.nav-link:hover{background:var(--gray-l);color:var(--text2)}
+.nav-link.active{background:var(--blue-dim);color:var(--blue)}
+.nav-raise{margin-left:20px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;padding:8px 18px;border-radius:6px;border:none;cursor:pointer;font-family:var(--font);letter-spacing:.02em;box-shadow:0 2px 10px rgba(81,176,230,.35)}
+
+/* ── SECTIONS ── */
+section{min-height:100vh;padding:100px 32px 80px;display:flex;align-items:center;border-bottom:1px solid var(--border)}
+section.compact{min-height:auto;padding:80px 32px}
+.si{max-width:1160px;margin:0 auto;width:100%}
+
+/* ── HERO ── */
+.hero{background:var(--white);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(81,176,230,.08) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-eyebrow{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:20px;padding:5px 14px;display:inline-block;margin-bottom:20px}
+.hero h1{font-size:52px;font-weight:900;color:var(--text);line-height:1.04;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{color:var(--blue);font-style:normal}
+.hero-sub{font-size:15px;color:var(--text3);line-height:1.7;margin-bottom:32px;max-width:480px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:13px 26px;cursor:pointer;font-family:var(--font);transition:all .16s;box-shadow:0 3px 14px rgba(81,176,230,.35)}
+.btn-primary:hover{background:var(--blue-d);transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;background:transparent;color:var(--text2);border:1.5px solid var(--border);border-radius:8px;padding:13px 26px;cursor:pointer;font-family:var(--font);transition:all .16s}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;box-shadow:var(--sh);position:relative;overflow:hidden;transition:all .2s}
+.stat-card:hover{border-color:var(--blue-bd);transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc-blue::before{background:var(--blue)}
+.sc-green::before{background:var(--green)}
+.sc-amber::before{background:var(--amber)}
+.sc-gray::before{background:var(--gray)}
+.stat-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text4);margin-bottom:8px}
+.stat-val{font-family:var(--mono);font-size:28px;font-weight:600;line-height:1;margin-bottom:4px}
+.stat-desc{font-size:10px;color:var(--text3);line-height:1.4}
+
+/* ── SECTION LABELS ── */
+.sec-label{font-family:var(--mono);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--blue);margin-bottom:8px}
+.sec-title{font-size:38px;font-weight:800;color:var(--text);letter-spacing:-.025em;line-height:1.1;margin-bottom:12px}
+.sec-sub{font-size:14px;color:var(--text3);line-height:1.65;max-width:640px;margin-bottom:44px}
+
+/* ── PLATFORM DEMO ── */
+.demo-tabs{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;box-shadow:var(--sh)}
+.demo-tab{flex:1;padding:14px 18px;border:none;cursor:pointer;font-family:var(--font);font-size:11px;font-weight:700;color:var(--text3);background:var(--white);border-right:1px solid var(--border);transition:all .14s;display:flex;flex-direction:column;align-items:center;gap:3px}
+.demo-tab:last-child{border-right:none}
+.demo-tab.on{background:var(--blue-dim);color:var(--blue)}
+.demo-tab:hover:not(.on){background:var(--gray-l)}
+.demo-tab-icon{font-size:18px;margin-bottom:2px}
+.demo-tab-sub{font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text4)}
+.demo-tab.on .demo-tab-sub{color:var(--blue)}
+.demo-panel{display:none}
+.demo-panel.on{display:block;animation:fadeIn .22s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.demo-frame{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--sh-lg)}
+.demo-frame iframe{width:100%;height:640px;border:none;display:block}
+.demo-meta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.dm-label{font-size:12px;font-weight:700;color:var(--text2)}
+.dm-sub{font-size:9px;color:var(--text4);margin-top:2px;font-family:var(--mono)}
+.dm-badge{font-size:9px;font-weight:700;background:var(--green);color:#fff;padding:4px 10px;border-radius:20px;display:flex;align-items:center;gap:5px}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.4)}50%{box-shadow:0 0 0 4px rgba(255,255,255,0)}}
+
+/* ── WIOS ARCHITECTURE DIAGRAM ── */
+.wios-diagram{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;box-shadow:var(--sh-lg);position:relative;overflow:hidden}
+.wios-diagram::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(81,176,230,.04) 0%,transparent 60%);pointer-events:none}
+.wios-title{text-align:center;margin-bottom:40px}
+.wios-title h3{font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.02em}
+.wios-title p{font-size:12px;color:var(--text4);margin-top:4px;font-family:var(--mono)}
+.wios-layers{display:flex;flex-direction:column;gap:16px}
+.wios-layer{position:relative}
+.wios-layer-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--text4);margin-bottom:8px;padding-left:2px}
+.wios-row{display:flex;gap:10px}
+.wios-node{border-radius:10px;padding:14px 16px;flex:1;border:1px solid;position:relative;cursor:default;transition:all .18s}
+.wios-node:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.wios-node-name{font-size:11px;font-weight:700;margin-bottom:3px}
+.wios-node-desc{font-size:9px;line-height:1.45;opacity:.75}
+.wios-node-tag{position:absolute;top:10px;right:10px;font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em}
+
+/* Node color variants */
+.n-blue{background:rgba(81,176,230,.07);border-color:rgba(81,176,230,.25);color:var(--blue)}
+.n-green{background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.25);color:#059669}
+.n-amber{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.25);color:#D97706}
+.n-gray{background:rgba(166,168,171,.07);border-color:rgba(166,168,171,.25);color:var(--gray-d)}
+.n-red{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.25);color:#DC2626}
+.tag-live{background:var(--green);color:#fff}
+.tag-pilot{background:var(--blue);color:#fff}
+.tag-dev{background:var(--amber);color:#fff}
+.tag-planned{background:var(--gray);color:#fff}
+
+/* Connector arrow */
+.wios-connector{display:flex;justify-content:center;align-items:center;height:24px;color:var(--blue-bd)}
+.wios-connector::before{content:'';display:block;width:1px;height:100%;background:linear-gradient(to bottom,var(--border),var(--blue-bd))}
+
+/* ── PRODUCT ROADMAP ── */
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.roadmap::before{content:'';position:absolute;top:60px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--border),var(--blue-bd),var(--blue),var(--blue-d),var(--blue));z-index:0}
+.roadmap-phase{text-align:center;position:relative;z-index:1;padding:0 8px}
+.phase-num{width:48px;height:48px;border-radius:50%;background:var(--white);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:var(--mono);font-size:16px;font-weight:700;color:var(--text4);transition:all .2s}
+.phase-active .phase-num{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 6px rgba(81,176,230,.15)}
+.phase-current .phase-num{background:var(--white);border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 6px rgba(81,176,230,.1)}
+.phase-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;margin-top:8px;box-shadow:var(--sh);transition:all .2s;min-height:200px}
+.phase-card:hover{border-color:var(--blue-bd);box-shadow:var(--sh-lg);transform:translateY(-2px)}
+.phase-active .phase-card{border-color:var(--blue-bd);background:var(--blue-dim)}
+.phase-name{font-size:11px;font-weight:800;color:var(--text);margin-bottom:4px;line-height:1.3}
+.phase-product{font-size:9px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;font-family:var(--mono)}
+.phase-items{list-style:none;display:flex;flex-direction:column;gap:5px}
+.phase-items li{font-size:9px;color:var(--text3);line-height:1.4;display:flex;gap:6px;align-items:flex-start}
+.phase-items li::before{content:'→';color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px}
+.phase-badge{display:inline-block;font-size:8px;font-weight:700;padding:3px 8px;border-radius:4px;margin-bottom:8px}
+
+/* ── UNIT ECONOMICS ── */
+.econ-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.econ-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.econ-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.ec-blue::before{background:var(--blue)}
+.ec-green::before{background:var(--green)}
+.ec-amber::before{background:var(--amber)}
+.econ-icon{font-size:24px;margin-bottom:12px}
+.econ-name{font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px}
+.econ-tag{font-size:8px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;font-family:var(--mono)}
+.econ-rows{display:flex;flex-direction:column;gap:8px}
+.econ-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)}
+.econ-row:last-child{border-bottom:none}
+.er-label{font-size:10px;color:var(--text3)}
+.er-val{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--text)}
+.er-val.blue{color:var(--blue)}
+.er-val.green{color:var(--green)}
+.er-val.amber{color:var(--amber)}
+
+/* ── FINANCIAL PROJECTIONS ── */
+.proj-table{width:100%;border-collapse:separate;border-spacing:0 5px}
+.proj-table thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text4);padding:8px 14px;text-align:right;border-bottom:2px solid var(--border)}
+.proj-table thead th:first-child{text-align:left}
+.proj-table tbody tr{transition:all .14s}
+.proj-table tbody tr:hover td{background:var(--surface)!important}
+.proj-table tbody td{background:var(--white);padding:14px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:right;font-family:var(--mono);font-size:12px;font-weight:600;vertical-align:middle}
+.proj-table tbody td:first-child{border-left:1px solid var(--border);border-radius:8px 0 0 8px;text-align:left;font-family:var(--font);font-weight:700;color:var(--text)}
+.proj-table tbody td:last-child{border-right:1px solid var(--border);border-radius:0 8px 8px 0}
+.proj-table tbody tr.highlight td{background:var(--blue-dim)!important;border-color:var(--blue-bd)}
+.bar-wrap{width:100%;height:5px;background:var(--gray-l);border-radius:3px;overflow:hidden;margin-top:6px}
+.bar-fill{height:100%;border-radius:3px;background:var(--blue)}
+
+/* ── CAP TABLE ── */
+.raise-box{background:var(--white);border:2px solid var(--blue-bd);border-radius:16px;padding:36px;box-shadow:var(--sh-lg)}
+.raise-header{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.rh-item{text-align:center}
+.rh-val{font-family:var(--mono);font-size:32px;font-weight:700;color:var(--blue);line-height:1}
+.rh-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text4);margin-top:4px}
+.ticket-table{width:100%;border-collapse:collapse}
+.ticket-table th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text4);padding:8px 12px;text-align:right;border-bottom:2px solid var(--border)}
+.ticket-table th:first-child{text-align:left}
+.ticket-table td{padding:12px;text-align:right;font-family:var(--mono);font-size:12px;border-bottom:1px solid var(--border);color:var(--text2)}
+.ticket-table td:first-child{text-align:left;font-family:var(--font);font-weight:800;color:var(--text);font-size:15px}
+.ticket-table td.highlight{color:var(--blue);font-weight:700}
+.ticket-table tr:last-child td{border-bottom:none}
+
+/* ── USE OF FUNDS ── */
+.funds-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fund-row{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.fund-pct{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--blue);min-width:52px}
+.fund-bar-wrap{flex:1;height:6px;background:var(--gray-l);border-radius:3px;overflow:hidden}
+.fund-bar{height:100%;border-radius:3px;background:var(--blue);opacity:.7}
+.fund-label{font-size:11px;font-weight:700;color:var(--text)}
+.fund-desc{font-size:9px;color:var(--text4);margin-top:2px}
+
+/* ── TEAM ── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;box-shadow:var(--sh);transition:all .2s}
+.team-card:hover{border-color:var(--blue-bd);transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.team-avatar{width:52px;height:52px;border-radius:50%;background:var(--blue-dim);border:2px solid var(--blue-bd);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:18px;font-weight:800;color:var(--blue);font-family:var(--font)}
+.team-name{font-size:13px;font-weight:800;color:var(--text);margin-bottom:2px}
+.team-role{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);font-family:var(--mono)}
+.team-desc{font-size:10px;color:var(--text3);margin-top:8px;line-height:1.45}
+
+/* ── CTA ── */
+.cta-section{background:var(--white);text-align:center}
+.cta-box{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-d) 100%);border-radius:20px;padding:64px 48px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 20%,rgba(255,255,255,.12),transparent);pointer-events:none}
+.cta-box h2{font-size:40px;font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:12px}
+.cta-box p{font-size:15px;color:rgba(255,255,255,.65);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6}
+.btn-white{background:#fff;color:var(--blue);border:none;font-size:14px;font-weight:800;padding:15px 32px;border-radius:8px;cursor:pointer;font-family:var(--font);transition:all .16s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.cta-contact{margin-top:20px;font-size:13px;color:rgba(255,255,255,.5);font-family:var(--mono)}
+
+/* ── UTILITY ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.chip{display:inline-block;font-size:9px;font-weight:700;padding:3px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:.08em}
+.chip-blue{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue-bd)}
+.chip-green{background:rgba(16,185,129,.08);color:#059669;border:1px solid rgba(16,185,129,.2)}
+.chip-amber{background:rgba(245,158,11,.08);color:#D97706;border:1px solid rgba(245,158,11,.2)}
+.chip-gray{background:rgba(166,168,171,.1);color:var(--gray-d);border:1px solid rgba(166,168,171,.25)}
+
+/* Animations */
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:slideUp .5s ease both}
+.animate:nth-child(1){animation-delay:.05s}
+.animate:nth-child(2){animation-delay:.1s}
+.animate:nth-child(3){animation-delay:.15s}
+.animate:nth-child(4){animation-delay:.2s}
+.animate:nth-child(5){animation-delay:.25s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-grid,.grid-2{grid-template-columns:1fr}
+  .hero h1{font-size:36px}
+  .roadmap{grid-template-columns:1fr 1fr}
+  .econ-grid,.team-grid{grid-template-columns:1fr 1fr}
+  .raise-header{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .hero h1{font-size:28px}
+  .demo-tabs{flex-direction:column}
+  .econ-grid,.team-grid,.wios-row{grid-template-columns:1fr;flex-direction:column}
+  .roadmap{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .funds-grid{grid-template-columns:1fr}
+  .raise-header{grid-template-columns:1fr 1fr}
+  section{padding:80px 16px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">
+      <svg viewBox="0 0 18 18" fill="none">
+        <circle cx="9" cy="9" r="7" stroke="white" stroke-width="1.4" opacity=".4"/>
+        <circle cx="9" cy="9" r="4" stroke="white" stroke-width="1.4" opacity=".65"/>
+        <circle cx="9" cy="9" r="1.8" fill="white"/>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-name">GENEROSITY<span>™</span></div>
+      <div class="nav-sub">Water Intelligence OS</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link" onclick="scrollTo('iwb')">IWB + App</button>
+    <button class="nav-link" onclick="scrollTo('platform')">Platform</button>
+    <button class="nav-link" onclick="scrollTo('roadmap')">Roadmap</button>
+    <button class="nav-link" onclick="scrollTo('financials')">Financials</button>
+    <button class="nav-link" onclick="scrollTo('wios')">WIOS</button>
+    <button class="nav-link" onclick="scrollTo('raise')">The Raise</button>
+  </div>
+  <button class="nav-raise" onclick="scrollTo('raise')">Invest $5M →</button>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="si">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Series A — $5M Raise · $20M Pre-Money · April 2026</div>
+        <h1>Water Intelligence<br>is the <em>Missing</em><br>Biometric.</h1>
+        <p class="hero-sub">Generosity™ is the first vertically integrated Water Intelligence OS — anchored by the Intelligent WTR Bottle + WTR App (live BLE telemetry, NHS™ scoring), a Home WTR Hub in active dealer pilot, a B2B DaaS Sales Engine, and a proprietary AGI data engine that turns every drop into a defensible intelligence moat.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="scrollTo('iwb')">See IWB + App System ↓</button>
+          <button class="btn-outline" onclick="scrollTo('raise')">View the Raise</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card sc-blue animate">
+          <div class="stat-label">Live DaaS Tenants</div>
+          <div class="stat-val" style="color:var(--blue)">3</div>
+          <div class="stat-desc">Active B2B pilot tenants on Sales Engine. Island Ice &amp; Water, Maui — 25 contacts, 4-step sequencing live.</div>
+        </div>
+        <div class="stat-card sc-green animate">
+          <div class="stat-label">Q1 2026 Gross Revenue</div>
+          <div class="stat-val" style="color:var(--green)">$55K</div>
+          <div class="stat-desc">3-month gross. 64 units delivered. 57% blended margin. DTC + distribution channel active.</div>
+        </div>
+        <div class="stat-card sc-amber animate">
+          <div class="stat-label">Units PO Committed</div>
+          <div class="stat-val" style="color:var(--amber)">137</div>
+          <div class="stat-desc">Home WTR Hub Gen 2. COGS $338 channel / $472 DTC. Manufacturing partner: Eastcooler.</div>
+        </div>
+        <div class="stat-card sc-gray animate">
+          <div class="stat-label">IWB + App Completion</div>
+          <div class="stat-val" style="color:var(--gray-d)">70%</div>
+          <div class="stat-desc">PP02 BLE telemetry transmitting. WTR App beta live. Tooling locked across 5 colorways. EOQ1 2027 commercial launch.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ THE OPPORTUNITY ═══════════════════════════ -->
+<section class="compact" id="opportunity" style="background:var(--surface)">
+  <div class="si">
+    <div class="sec-label">The Opportunity</div>
+    <div class="sec-title">Every category has a metric. <br>Hydration has nothing.</div>
+    <div class="grid-3" style="margin-top:32px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:var(--sh)">
+        <div style="font-size:28px;margin-bottom:12px">😴</div>
+        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px">Sleep → Oura Ring</div>
+        <div style="font-size:10px;color:var(--text3);line-height:1.5">$5.9B valuation. The gold standard for sleep biometrics. A ring that changed how the world understands recovery.</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:var(--sh)">
+        <div style="font-size:28px;margin-bottom:12px">💪</div>
+        <div style="font-size:13px;font-weight:800;color:var(--text);margin-bottom:4px">Recovery → WHOOP</div>
+        <div style="font-size:10px;color:var(--text3);line-height:1.5">$3.6B valuation. Recovery metric that changed sports performance. A strap that outputs a number athletes trust.</div>
+      </div>
+      <div style="background:var(--blue-dim);border:1.5px solid var(--blue-bd);border-radius:12px;padding:24px;box-shadow:var(--sh)">
+        <div style="font-size:28px;margin-bottom:12px">💧</div>
+        <div style="font-size:13px;font-weight:800;color:var(--blue);margin-bottom:4px">Hydration → Generosity™</div>
+        <div style="font-size:10px;color:var(--text3);line-height:1.5">The missing biometric. NHS™ = Net Hydration Score. Delivered by an intelligent bottle that measures <em>what you drink and whether it's actually hydrating you</em>. Zero competitors combine verified intake + water quality intelligence.</div>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:20px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start">
+        <div style="font-size:24px;flex-shrink:0">🏠</div>
+        <div><div style="font-size:12px;font-weight:800;color:var(--text);margin-bottom:4px">$880B Global Water Market</div><div style="font-size:10px;color:var(--text3)">Water treatment tech CAGR 8.1%. Smart bottle CAGR 10–17%. No intelligence player at scale.</div></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start">
+        <div style="font-size:24px;flex-shrink:0">⚠️</div>
+        <div><div style="font-size:12px;font-weight:800;color:var(--text);margin-bottom:4px">45% US Tap Contaminated</div><div style="font-size:10px;color:var(--text3)">PFAS in 45% of US tap water (USGS 2023). 35M Americans exposed. Fear is the acquisition engine.</div></div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start">
+        <div style="font-size:24px;flex-shrink:0">📱</div>
+        <div><div style="font-size:12px;font-weight:800;color:var(--text);margin-bottom:4px">$135B Wearable Market</div><div style="font-size:10px;color:var(--text3)">None measure hydration quality. LARQ exited $50–60M to BRITA on UV-C alone. Our claim is 3× deeper.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ INTELLIGENT WTR BOTTLE + APP ═══════════════════════════ -->
+<section id="iwb" style="background:var(--white)">
+  <div class="si">
+    <div class="sec-label">Core Consumer Product — EOQ1 2027 Launch</div>
+    <div class="sec-title">The Intelligent WTR Bottle<br>+ WTR App is one product.</div>
+    <p class="sec-sub">The bottle without the app is hardware. The app without the bottle is software. Together they are the first closed-loop hydration intelligence system — live telemetry from every sip, scored against water quality, processed into a daily Net Hydration Score your body can actually act on.</p>
+
+    <!-- Big product hero -->
+    <div style="background:var(--surface);border:1px solid var(--blue-bd);border-radius:20px;padding:40px;margin-bottom:32px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(81,176,230,.08),transparent 65%);pointer-events:none"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+        <!-- Left: Hardware -->
+        <div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--blue);font-family:var(--mono);margin-bottom:14px">Intelligent WTR Bottle — PP02 Smart Lid</div>
+          <div style="font-size:28px;font-weight:900;color:var(--text);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px">The bottle that knows<br>if your water is<br><span style="color:var(--blue)">actually hydrating you.</span></div>
+          <p style="font-size:12px;color:var(--text3);line-height:1.65;margin-bottom:20px">The PP02 Smart Lid houses three sensors — TDS, temperature, and Time-of-Flight volume — and streams every intake event via BLE to the WTR App in real time. It's not tracking how much you drink. It's measuring whether what you drink is bioavailable enough to count.</p>
+
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="width:36px;height:36px;background:var(--blue-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">📡</div>
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:2px">TDS Sensor — Water Quality Score</div>
+                <div style="font-size:9px;color:var(--text4)">Measures total dissolved solids per intake event. Flags if source water is high-contamination before it's absorbed.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="width:36px;height:36px;background:var(--blue-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">🌡️</div>
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:2px">Temperature Sensor — Absorption Signal</div>
+                <div style="font-size:9px;color:var(--text4)">Cold water slows gastric absorption. The NHS algorithm adjusts bioavailability scoring based on drink temperature.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="width:36px;height:36px;background:var(--blue-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">📏</div>
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:2px">ToF Volume Sensor — Verified Intake</div>
+                <div style="font-size:9px;color:var(--text4)">Time-of-Flight measures exact mL consumed per sip. No self-reporting. No estimates. Verified intake that feeds NHS.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+              <div style="width:36px;height:36px;background:var(--blue-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">📶</div>
+              <div>
+                <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:2px">BLE Smart Cap — Live App Sync</div>
+                <div style="font-size:9px;color:var(--text4)">PP02 firmware v5. Bluetooth Low Energy streams TDS + mL + temp to WTR App within seconds of each intake event.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+            <div style="background:#fff;border:1px solid var(--blue-bd);border-radius:8px;padding:12px 16px;text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--blue)">$149.99</div>
+              <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text4);margin-top:2px">Retail Price</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 16px;text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text)">$51</div>
+              <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text4);margin-top:2px">COGS</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--green);border-radius:8px;padding:12px 16px;text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--green)">66%</div>
+              <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text4);margin-top:2px">Gross Margin</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 16px;text-align:center">
+              <div style="font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text)">5</div>
+              <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text4);margin-top:2px">Colorways</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: App Intelligence -->
+        <div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--green);font-family:var(--mono);margin-bottom:14px">WTR App — The Intelligence Layer</div>
+          <div style="font-size:28px;font-weight:900;color:var(--text);line-height:1.1;letter-spacing:-.02em;margin-bottom:16px">The app that converts<br>telemetry into your<br><span style="color:var(--green)">NHS™ Score.</span></div>
+          <p style="font-size:12px;color:var(--text3);line-height:1.65;margin-bottom:20px">The WTR App is the intelligence engine sitting on top of the hardware. It ingests BLE telemetry from the PP02 Smart Lid, cross-references water quality against EPA SDWIS data, syncs with 7 wearable platforms, and outputs a single actionable number: your Net Hydration Score. It knows if your HRV dropped because you're dehydrated — not just stressed.</p>
+
+          <!-- NHS Formula callout -->
+          <div style="background:var(--blue-dim);border:1.5px solid var(--blue-bd);border-radius:10px;padding:18px;margin-bottom:16px">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--blue);margin-bottom:10px;font-family:var(--mono)">NHS™ Algorithm — USPTO Provisional 4489-046P</div>
+            <div style="font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px">NHS = Σ(Intake × Absorption) − Σ(Fluid Loss) + EAI</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+              <div style="font-size:9px;color:var(--text3)"><span style="color:var(--blue);font-weight:700">Intake × Absorption</span> — mL consumed × bioavailability coefficient (TDS-adjusted, temp-adjusted)</div>
+              <div style="font-size:9px;color:var(--text3)"><span style="color:var(--blue);font-weight:700">Fluid Loss</span> — Sweat + respiration, estimated via wearable skin temp + strain score</div>
+              <div style="font-size:9px;color:var(--text3)"><span style="color:var(--blue);font-weight:700">EAI</span> — Electrolyte Adjustment Index, mineral balance offset from water quality profile</div>
+              <div style="font-size:9px;color:var(--text3)"><span style="color:var(--blue);font-weight:700">Output</span> — Net liters: positive = optimally hydrated. Negative = dehydration deficit, with intervention prompt.</div>
+            </div>
+          </div>
+
+          <!-- App feature stack -->
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">Free Entry: Municipal Water Intelligence Assessment</span>
+              <span class="chip chip-green" style="font-size:8px">HOOK</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">Paid: Live NHS Score + BLE Bottle Telemetry</span>
+              <span class="chip chip-blue" style="font-size:8px">$6.99/mo</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">7 Wearable Integrations</span>
+              <span style="font-size:9px;color:var(--text4)">Apple Watch · Oura · WHOOP · Garmin · Samsung · Hume AI · Body Fit</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">Trust But Verify™ — Address-level Water Scan</span>
+              <span class="chip chip-blue" style="font-size:8px">EPA SDWIS LIVE</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">Home WTR Hub Integration — Real-Time TDS + Filter Life</span>
+              <span class="chip chip-green" style="font-size:8px">LIVE NOW</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:#fff;border:1px solid var(--border);border-radius:7px">
+              <span style="font-size:11px;font-weight:700;color:var(--text)">App Gross Margin</span>
+              <span style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green)">96%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How hardware + app creates the data moat -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px">
+      <div style="text-align:center;margin-bottom:22px">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--text4)">Why This Is Defensible — The Closed Loop No Competitor Can Replicate</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap">
+        <div style="text-align:center;padding:16px 20px;min-width:160px">
+          <div style="font-size:22px;margin-bottom:8px">💧</div>
+          <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:4px">User Drinks</div>
+          <div style="font-size:9px;color:var(--text3)">PP02 Smart Lid measures TDS, temp, and exact mL consumed via ToF sensor</div>
+        </div>
+        <div style="font-size:20px;color:var(--blue-bd);padding:0 4px">→</div>
+        <div style="text-align:center;padding:16px 20px;min-width:160px">
+          <div style="font-size:22px;margin-bottom:8px">📶</div>
+          <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:4px">BLE Streams Live</div>
+          <div style="font-size:9px;color:var(--text3)">Every sip event synced to WTR App in real time. No self-reporting. No manual logs.</div>
+        </div>
+        <div style="font-size:20px;color:var(--blue-bd);padding:0 4px">→</div>
+        <div style="text-align:center;padding:16px 20px;min-width:160px">
+          <div style="font-size:22px;margin-bottom:8px">🧮</div>
+          <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:4px">NHS Calculates</div>
+          <div style="font-size:9px;color:var(--text3)">App cross-references quality score, wearable fluid loss data, and EPA source intelligence</div>
+        </div>
+        <div style="font-size:20px;color:var(--blue-bd);padding:0 4px">→</div>
+        <div style="text-align:center;padding:16px 20px;min-width:160px">
+          <div style="font-size:22px;margin-bottom:8px">📊</div>
+          <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:4px">Score Delivered</div>
+          <div style="font-size:9px;color:var(--text3)">Net Hydration Score with actionable intervention: drink more, change source, or optimize timing</div>
+        </div>
+        <div style="font-size:20px;color:var(--blue-bd);padding:0 4px">→</div>
+        <div style="background:var(--blue);border-radius:10px;text-align:center;padding:16px 20px;min-width:160px">
+          <div style="font-size:22px;margin-bottom:8px">🧠</div>
+          <div style="font-size:11px;font-weight:800;color:#fff;margin-bottom:4px">WIOS Compounds</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.7)">Every data point feeds the private personalization layer. The moat deepens with every user.</div>
+        </div>
+      </div>
+      <div style="margin-top:20px;padding:14px 18px;background:#fff;border:1px solid var(--blue-bd);border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="font-size:11px;font-weight:700;color:var(--text)">Combined Revenue Per Engaged User (Bottle + Annual App Sub)</div>
+        <div style="display:flex;gap:16px">
+          <div style="text-align:center"><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--blue)">$149.99</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em">Bottle HW</div></div>
+          <div style="display:flex;align-items:center;color:var(--text4);font-size:16px">+</div>
+          <div style="text-align:center"><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--blue)">$59.99</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em">App/yr</div></div>
+          <div style="display:flex;align-items:center;color:var(--text4);font-size:16px">=</div>
+          <div style="text-align:center"><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--green)">$209.98</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em">Y1 LTV Base</div></div>
+          <div style="display:flex;align-items:center;color:var(--text4);font-size:16px">+</div>
+          <div style="text-align:center"><div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--green)">$59.99</div><div style="font-size:8px;color:var(--text4);text-transform:uppercase;letter-spacing:.08em">Per yr after</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ LIVE PLATFORM DEMO ═══════════════════════════ -->
+<section id="platform">
+  <div class="si">
+    <div class="sec-label">Live Platforms — In Pilot Today</div>
+    <div class="sec-title">Not a prototype.<br>Production platforms.</div>
+    <p class="sec-sub">Three live systems operating simultaneously. The Sales Engine has an active B2B pilot tenant. The WTR App has live hardware telemetry. Both demonstrate the data moat being built in real time.</p>
+
+    <div class="demo-tabs">
+      <button class="demo-tab on" id="tab-sales" onclick="showDemo('sales')">
+        <div class="demo-tab-icon">⚡</div>
+        Sales Engine (DaaS)
+        <div class="demo-tab-sub">B2B Pilot · Live</div>
+      </button>
+      <button class="demo-tab" id="tab-wtr" onclick="showDemo('wtr')">
+        <div class="demo-tab-icon">💧</div>
+        WTR App + Telemetry
+        <div class="demo-tab-sub">Hardware Live</div>
+      </button>
+      <button class="demo-tab" id="tab-wios" onclick="showDemo('wios')">
+        <div class="demo-tab-icon">🧠</div>
+        WIOS Intelligence
+        <div class="demo-tab-sub">Water Oracle</div>
+      </button>
+    </div>
+
+    <!-- Sales Engine Panel -->
+    <div class="demo-panel on" id="panel-sales">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:2px">Sales Engine — Generosity™ DaaS Platform</div>
+          <div style="font-size:10px;color:var(--text4);font-family:var(--mono)">generosity-dashboard.vercel.app</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <span class="chip chip-green">🟢 Live Pilot</span>
+          <span class="chip chip-blue">Tenant: Island Ice &amp; Water</span>
+          <span style="font-size:10px;color:var(--text4);font-family:var(--mono)">admin@islandiceandwater.com · Demo2026!</span>
+        </div>
+      </div>
+      <div class="demo-frame">
+        <iframe src="https://generosity-dashboard.vercel.app" title="Sales Engine"></iframe>
+      </div>
+      <div class="demo-meta">
+        <div>
+          <div class="dm-label">⚡ Generosity™ Sales Engine — AI-Powered Email Sequencing + Lead Intelligence</div>
+          <div class="dm-sub">4-step B2B sequence · 25 contacts active · SendGrid + Claude AI copy · Real-time open/click tracking · DaaS SaaS model $398–$3,198/mo</div>
+        </div>
+        <div class="dm-badge"><div class="live-dot"></div> PILOT LIVE</div>
+      </div>
+    </div>
+
+    <!-- WTR App Panel -->
+    <div class="demo-panel" id="panel-wtr">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px;display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:2px">Generosity™ WTR App — Trust But Verify™ Intelligence Layer</div>
+          <div style="font-size:10px;color:var(--text4);font-family:var(--mono)">app.generositywater.com</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <span class="chip chip-blue">BLE Telemetry Live</span>
+          <span class="chip chip-green">EPA SDWIS Connected</span>
+          <span class="chip chip-amber">NHS Algorithm Active</span>
+        </div>
+      </div>
+      <div class="demo-frame">
+        <iframe src="https://app.generositywater.com" title="WTR App"></iframe>
+      </div>
+      <div class="demo-meta">
+        <div>
+          <div class="dm-label">💧 WTR App — Address-level water intelligence · BLE smart cap telemetry · NHS hydration scoring</div>
+          <div class="dm-sub">Free tier hook: Municipal Water Intelligence Assessment · Paid: $6.99/mo or $59.99/yr · 96% gross margin · 7 wearable integrations</div>
+        </div>
+        <div class="dm-badge" style="background:var(--blue)"><div class="live-dot"></div> TELEMETRY LIVE</div>
+      </div>
+    </div>
+
+    <!-- WIOS Panel -->
+    <div class="demo-panel" id="panel-wios">
+      <div style="background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:10px;padding:24px;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:800;color:var(--blue);margin-bottom:8px">🧠 WIOS — Water Intelligence Operating System</div>
+        <p style="font-size:11px;color:var(--text3);line-height:1.6;margin-bottom:16px">The platform intelligence layer — 6 AI agents ingesting EPA SDWIS, UCMR5, IoT device telemetry, wearable biometrics, and private lab data into a unified causal intelligence engine. Every hardware unit sold becomes a permanent sensor node.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">SENTINEL™</div>
+            <div style="font-size:10px;color:var(--text3)">Real-time ingestion from 400+ data streams. 3-sigma anomaly detection within 60s of data receipt.</div>
+            <div style="margin-top:6px"><span class="chip chip-green" style="font-size:8px">ACTIVE</span></div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">ORACLE™</div>
+            <div style="font-size:10px;color:var(--text3)">30/90/365-day contamination forecasting. PFAS migration modeling. Infrastructure failure prediction.</div>
+            <div style="margin-top:6px"><span class="chip chip-amber" style="font-size:8px">IN DEV</span></div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">HYDRA™</div>
+            <div style="font-size:10px;color:var(--text3)">Causal Knowledge Graph. Source attribution. Contamination origin tracing using Neo4j GNN.</div>
+            <div style="margin-top:6px"><span class="chip chip-amber" style="font-size:8px">IN DEV</span></div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">HERALD™</div>
+            <div style="font-size:10px;color:var(--text3)">Intelligence delivery to gov, B2B, consumer. Automated regulatory alert formatting. Uses existing SendGrid.</div>
+            <div style="margin-top:6px"><span class="chip chip-green" style="font-size:8px">ACTIVE</span></div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">LEDGER™</div>
+            <div style="font-size:10px;color:var(--text3)">Immutable audit trail. Cryptographic data provenance. Regulatory defensibility for every measurement.</div>
+            <div style="margin-top:6px"><span class="chip chip-amber" style="font-size:8px">IN DEV</span></div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:14px;border:1px solid var(--blue-bd)">
+            <div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:6px">NEXUS™</div>
+            <div style="font-size:10px;color:var(--text3)">Data partnership mgmt. EPA, CDC, USGS, NOAA connectors. Lab network API. Revenue-share data licensing.</div>
+            <div style="margin-top:6px"><span class="chip chip-gray" style="font-size:8px">PLANNED</span></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:14px;background:#fff;border-radius:8px;border:1px solid var(--border)">
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text4);margin-bottom:8px">Proprietary Intelligence Indices — Active</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span class="chip chip-blue">MWRI™ Municipal Water Readiness Index</span>
+            <span class="chip chip-blue">DCS™ Data Confidence Score</span>
+            <span class="chip chip-blue">VRS™ Variability Risk Score</span>
+            <span class="chip chip-blue">NHS™ Net Hydration Score</span>
+            <span class="chip chip-blue">HAE™ Hydration Absorption Efficiency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PRODUCT ROADMAP ═══════════════════════════ -->
+<section class="compact" id="roadmap" style="background:var(--surface)">
+  <div class="si">
+    <div class="sec-label">Product Roadmap</div>
+    <div class="sec-title">One flywheel. Five phases.<br>Every product feeds WIOS.</div>
+    <p class="sec-sub">The roadmap is not a feature list — it's a data acquisition strategy. Every product creates users. Every user creates data. Every data point strengthens the intelligence moat that no competitor can replicate.</p>
+
+    <div class="roadmap">
+      <div class="roadmap-phase phase-active">
+        <div class="phase-num">1</div>
+        <div class="phase-card">
+          <span class="chip chip-green phase-badge">Live Now</span>
+          <div class="phase-product">Home WTR Hub Gen 2</div>
+          <div class="phase-name">Hardware + DaaS Wedge</div>
+          <ul class="phase-items">
+            <li>$1,399.99 bundled w/ Intelligent Faucet</li>
+            <li>Real-time TDS display + filter alerts</li>
+            <li>Sales Engine B2B email sequencing</li>
+            <li>3 DaaS tenants, invoicing July 2026</li>
+            <li>57% blended gross margin, 64 units delivered</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase phase-current">
+        <div class="phase-num">2</div>
+        <div class="phase-card">
+          <span class="chip chip-blue phase-badge">EOQ1 2027</span>
+          <div class="phase-product">WTR App + Free MWIA Hook</div>
+          <div class="phase-name">Low-Barrier Entry + Engagement</div>
+          <ul class="phase-items">
+            <li>Free Municipal Water Intelligence Assessment</li>
+            <li>Address-level EPA/UCMR5 data</li>
+            <li>Email capture + Trust But Verify™ scan</li>
+            <li>$6.99/mo subscription unlock</li>
+            <li>Top-of-funnel for hardware conversion</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">3</div>
+        <div class="phase-card">
+          <span class="chip chip-blue phase-badge">EOQ1 2027</span>
+          <div class="phase-product">Intelligent WTR Bottle (PP02)</div>
+          <div class="phase-name">Live Telemetry + NHS Score</div>
+          <ul class="phase-items">
+            <li>BLE Smart Cap — TDS, Temp, ToF</li>
+            <li>Real-time intake tracking to WTR App</li>
+            <li>NHS formula: Intake × Absorption − Loss</li>
+            <li>$149.99 · COGS $51 · 66% GM</li>
+            <li>7 wearable integrations active</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">4</div>
+        <div class="phase-card">
+          <span class="chip chip-amber phase-badge">Q3 2027</span>
+          <div class="phase-product">Universal Retro-Fit Cap</div>
+          <div class="phase-name">TAM Multiplier — Any Bottle</div>
+          <ul class="phase-items">
+            <li>Works on Yeti, Stanley, Hydro Flask, Owala</li>
+            <li>No behavior change required</li>
+            <li>Pulls APP users toward cleaner water sources</li>
+            <li>Natural upsell: "Upgrade to Home WTR Hub"</li>
+            <li>Shared sensor housing = low incremental tooling</li>
+          </ul>
+        </div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">5</div>
+        <div class="phase-card">
+          <span class="chip chip-gray phase-badge">2028+</span>
+          <div class="phase-product">WIOS — Planetary Intelligence</div>
+          <div class="phase-name">The Data Moat Unlocks</div>
+          <ul class="phase-items">
+            <li>50K+ device nodes feeding WIOS daily</li>
+            <li>MWRI™ municipal SaaS $25K–$500K/yr</li>
+            <li>Federal API: EPA, CDC $1M–$10M contracts</li>
+            <li>Enterprise ESG/supply chain licensing</li>
+            <li>The Palantir of water intelligence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flywheel narrative -->
+    <div style="margin-top:40px;background:#fff;border:1px solid var(--blue-bd);border-radius:14px;padding:32px">
+      <div style="text-align:center;margin-bottom:24px">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--blue);margin-bottom:6px">The Intelligence Flywheel</div>
+        <div style="font-size:18px;font-weight:800;color:var(--text)">Every product feeds the data layer. The data layer makes every product better.</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap">
+        <div style="background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:10px;padding:12px 18px;text-align:center;min-width:140px">
+          <div style="font-size:18px;margin-bottom:4px">🏠</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">Hub Installed</div>
+          <div style="font-size:9px;color:var(--text4)">HW Revenue + DaaS ARR</div>
+        </div>
+        <div style="color:var(--blue);font-size:18px;font-weight:700">→</div>
+        <div style="background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:10px;padding:12px 18px;text-align:center;min-width:140px">
+          <div style="font-size:18px;margin-bottom:4px">📱</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">WTR App Activated</div>
+          <div style="font-size:9px;color:var(--text4)">Sub ARR + Public Data Layer</div>
+        </div>
+        <div style="color:var(--blue);font-size:18px;font-weight:700">→</div>
+        <div style="background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:10px;padding:12px 18px;text-align:center;min-width:140px">
+          <div style="font-size:18px;margin-bottom:4px">💧</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">BTL Purchased</div>
+          <div style="font-size:9px;color:var(--text4)">HW Revenue + Private Data</div>
+        </div>
+        <div style="color:var(--blue);font-size:18px;font-weight:700">→</div>
+        <div style="background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:10px;padding:12px 18px;text-align:center;min-width:140px">
+          <div style="font-size:18px;margin-bottom:4px">👤</div>
+          <div style="font-size:11px;font-weight:700;color:var(--blue)">Personalization Layer</div>
+          <div style="font-size:9px;color:var(--text4)">NHS · Wearables · Biometrics</div>
+        </div>
+        <div style="color:var(--blue);font-size:18px;font-weight:700">→</div>
+        <div style="background:var(--blue);border-radius:10px;padding:12px 18px;text-align:center;min-width:140px">
+          <div style="font-size:18px;margin-bottom:4px">🧠</div>
+          <div style="font-size:11px;font-weight:700;color:#fff">WIOS Compounds</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.65)">Platform · Gov · Enterprise</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ UNIT ECONOMICS ═══════════════════════════ -->
+<section class="compact" id="economics">
+  <div class="si">
+    <div class="sec-label">Unit Economics</div>
+    <div class="sec-title">Three revenue streams.<br>High-margin stack.</div>
+    <p class="sec-sub">Hardware creates the install base. Subscriptions create recurring ARR. The DaaS platform creates enterprise stickiness. Together they compound into a moat that grows with every unit deployed.</p>
+    <div class="econ-grid">
+      <div class="econ-card ec-blue">
+        <div class="econ-icon">🏠</div>
+        <div class="econ-name">Home WTR Hub Gen 2</div>
+        <div class="econ-tag">GWS-HUB-G2-IF · Eastcooler</div>
+        <div class="econ-rows">
+          <div class="econ-row"><span class="er-label">DTC Retail Price</span><span class="er-val blue">$1,399.99</span></div>
+          <div class="econ-row"><span class="er-label">Channel Price</span><span class="er-val">$669</span></div>
+          <div class="econ-row"><span class="er-label">COGS (DTC actual)</span><span class="er-val">$472</span></div>
+          <div class="econ-row"><span class="er-label">COGS (Channel actual)</span><span class="er-val">$338</span></div>
+          <div class="econ-row"><span class="er-label">DTC Gross Margin</span><span class="er-val green">66%</span></div>
+          <div class="econ-row"><span class="er-label">Channel Gross Margin</span><span class="er-val">50%</span></div>
+          <div class="econ-row"><span class="er-label">Intelligent Faucet</span><span class="er-val">Bundled (always)</span></div>
+        </div>
+      </div>
+      <div class="econ-card ec-green">
+        <div class="econ-icon">📱</div>
+        <div class="econ-name">WTR App Subscription</div>
+        <div class="econ-tag">Trust But Verify™ · NHS Score</div>
+        <div class="econ-rows">
+          <div class="econ-row"><span class="er-label">Monthly Price</span><span class="er-val blue">$6.99/mo</span></div>
+          <div class="econ-row"><span class="er-label">Annual Price</span><span class="er-val blue">$59.99/yr</span></div>
+          <div class="econ-row"><span class="er-label">Gross Margin</span><span class="er-val green">96%</span></div>
+          <div class="econ-row"><span class="er-label">Free Tier Hook</span><span class="er-val">MWIA Report</span></div>
+          <div class="econ-row"><span class="er-label">Wearable Integrations</span><span class="er-val">7 platforms</span></div>
+          <div class="econ-row"><span class="er-label">Bottle (PP02)</span><span class="er-val">$149.99 · 66% GM</span></div>
+          <div class="econ-row"><span class="er-label">Data layer value</span><span class="er-val blue">Feeds WIOS</span></div>
+        </div>
+      </div>
+      <div class="econ-card ec-amber">
+        <div class="econ-icon">⚡</div>
+        <div class="econ-name">DaaS — Sales Engine</div>
+        <div class="econ-tag">B2B SaaS · Water Distribution</div>
+        <div class="econ-rows">
+          <div class="econ-row"><span class="er-label">Starter Plan</span><span class="er-val">$398/mo ($4,176 ARR)</span></div>
+          <div class="econ-row"><span class="er-label">Growth Plan</span><span class="er-val">$698/mo ($7,176 ARR)</span></div>
+          <div class="econ-row"><span class="er-label">Scale Plan</span><span class="er-val">$1,698/mo ($17,376 ARR)</span></div>
+          <div class="econ-row"><span class="er-label">Network Plan</span><span class="er-val">$3,198/mo ($32,376 ARR)</span></div>
+          <div class="econ-row"><span class="er-label">Platform Gross Margin</span><span class="er-val green">96% recurring</span></div>
+          <div class="econ-row"><span class="er-label">Active Tenants</span><span class="er-val blue">3 (invoicing Jul '26)</span></div>
+          <div class="econ-row"><span class="er-label">No competitor</span><span class="er-val">In water channel</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FINANCIALS ═══════════════════════════ -->
+<section class="compact" id="financials" style="background:var(--surface)">
+  <div class="si">
+    <div class="sec-label">Financial Projections</div>
+    <div class="sec-title">Conservative path to<br>Series A at $150M.</div>
+    <p class="sec-sub">Moderate scenario. Excludes Intelligent WTR Bottle, retro-fit cap, and Hydrostasis. COGS tariff scenario modeled at +20–30%. DaaS invoicing begins July 2026.</p>
+
+    <table class="proj-table" style="margin-bottom:24px">
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Channel Units</th>
+          <th>DTC Units</th>
+          <th>Hardware Rev</th>
+          <th>DaaS ARR</th>
+          <th>App ARR</th>
+          <th>Gross Profit</th>
+          <th>GM %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Q1 2026 (Actual)</td>
+          <td>47</td><td>17</td><td style="color:var(--text2)">$55,243</td><td style="color:var(--text4)">$0</td><td style="color:var(--text4)">$0</td><td style="color:var(--green)">$31,341</td><td style="color:var(--text2)">57%</td>
+        </tr>
+        <tr>
+          <td>Q3 2026</td>
+          <td>80</td><td>30</td><td>$95,520</td><td style="color:var(--blue)">$25,728</td><td style="color:var(--blue)">$18K</td><td style="color:var(--green)">$83K</td><td style="color:var(--green)">62%</td>
+        </tr>
+        <tr class="highlight">
+          <td>Q4 2026</td>
+          <td>140</td><td>55</td><td>$170,660</td><td style="color:var(--blue)">$51,456</td><td style="color:var(--blue)">$36K</td><td style="color:var(--green)">$158K</td><td style="color:var(--green)">65%</td>
+        </tr>
+        <tr>
+          <td>Q1 2027</td>
+          <td>200</td><td>80</td><td>$245,800</td><td style="color:var(--blue)">$82,752</td><td style="color:var(--blue)">$78K</td><td style="color:var(--green)">$271K</td><td style="color:var(--green)">66%</td>
+        </tr>
+        <tr>
+          <td>Q2 2027</td>
+          <td>260</td><td>120</td><td>$341,940</td><td style="color:var(--blue)">$110,376</td><td style="color:var(--blue)">$132K</td><td style="color:var(--green)">$388K</td><td style="color:var(--green)">68%</td>
+        </tr>
+        <tr class="highlight">
+          <td style="font-weight:900;color:var(--blue)">Y3 Target (Full Platform)</td>
+          <td colspan="2" style="text-align:center;color:var(--text4)">All channels</td>
+          <td style="color:var(--blue);font-weight:700">$8.2M+</td>
+          <td style="color:var(--blue);font-weight:700">$25M WIOS</td>
+          <td style="color:var(--blue);font-weight:700">$780K</td>
+          <td style="color:var(--green);font-weight:700">$6M</td>
+          <td style="color:var(--green);font-weight:700">73%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- LARQ Exit Comp -->
+    <div style="background:#fff;border:1px solid var(--blue-bd);border-radius:12px;padding:24px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+        <div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text4);margin-bottom:8px">Exit Comp: LARQ → BRITA</div>
+          <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:4px">$50–60M</div>
+          <div style="font-size:10px;color:var(--text3)">Acquired 2024. Single claim: UV-C purification. $30M cumulative revenue in 4 years. DTC only.</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text4);margin-bottom:8px">Generosity™ Advantage</div>
+          <div style="font-size:22px;font-weight:800;color:var(--blue);margin-bottom:4px">3× Deeper</div>
+          <div style="font-size:10px;color:var(--text3)">Water quality + NHS + bioavailability + WIOS AGI + B2B DaaS + retro-fit platform. No UV-C. Intelligence moat.</div>
+        </div>
+        <div>
+          <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--text4);margin-bottom:8px">Series A Target</div>
+          <div style="font-size:22px;font-weight:800;color:var(--green);margin-bottom:4px">$150M</div>
+          <div style="font-size:10px;color:var(--text3)">18 months post full launch. Or strategic acquisition path to Pentair, Veolia, BRITA, or PE infrastructure fund.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ WIOS ARCHITECTURE ═══════════════════════════ -->
+<section class="compact" id="wios">
+  <div class="si">
+    <div class="sec-label">Water Intelligence OS — The Moat</div>
+    <div class="sec-title">The Palantir of Water.<br>Built from the source up.</div>
+    <p class="sec-sub">Three data planes. Six AI agents. Every Generosity™ hardware unit sold is a permanent sensor node. No government agency or competitor can build this sensor network — only Generosity™ gets this data by selling hardware that consumers want.</p>
+
+    <div class="wios-diagram">
+      <div class="wios-title">
+        <h3>WIOS Architecture — Three-Plane Intelligence Engine</h3>
+        <p>WATER BECOMES DATA → DATA BECOMES INTELLIGENCE → INTELLIGENCE BECOMES OUTCOMES</p>
+      </div>
+
+      <div class="wios-layers">
+        <!-- Plane 3: Delivery -->
+        <div class="wios-layer">
+          <div class="wios-layer-label">📊 Plane 3 — Intelligence Delivery</div>
+          <div class="wios-row">
+            <div class="wios-node n-blue" style="flex:1.2">
+              <span class="wios-node-tag tag-live">LIVE</span>
+              <div class="wios-node-name">Gov / Federal API</div>
+              <div class="wios-node-desc">EPA, CDC, FEMA. $1M–$10M annual contracts. Contamination pre-notification. CFR-formatted regulatory alerts.</div>
+            </div>
+            <div class="wios-node n-blue">
+              <span class="wios-node-tag tag-pilot">PILOT</span>
+              <div class="wios-node-name">B2B DaaS Console</div>
+              <div class="wios-node-desc">Sales Engine. MWRI™ scores for dealer territories. Lead gen from contamination alerts.</div>
+            </div>
+            <div class="wios-node n-green">
+              <span class="wios-node-tag tag-live">LIVE</span>
+              <div class="wios-node-name">WTR App (Consumer)</div>
+              <div class="wios-node-desc">Free MWIA → Paid NHS™ score. Trust But Verify™. 7 wearable integrations.</div>
+            </div>
+            <div class="wios-node n-gray">
+              <span class="wios-node-tag tag-planned">PLANNED</span>
+              <div class="wios-node-name">WaterTruth.org</div>
+              <div class="wios-node-desc">Public free ZIP lookup. Media/journalist data portal. Annual contamination reports.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wios-connector"></div>
+
+        <!-- Plane 2: Intelligence Agents -->
+        <div class="wios-layer">
+          <div class="wios-layer-label">🧠 Plane 2 — Causal Intelligence Agents (WIOS Control Plane)</div>
+          <div class="wios-row">
+            <div class="wios-node n-blue">
+              <span class="wios-node-tag tag-live">ACTIVE</span>
+              <div class="wios-node-name">SENTINEL™</div>
+              <div class="wios-node-desc">400+ data streams. 3-sigma anomaly detection in 60s. Isolation Forest + LSTM ensemble.</div>
+            </div>
+            <div class="wios-node n-amber">
+              <span class="wios-node-tag tag-dev">IN DEV</span>
+              <div class="wios-node-name">ORACLE™</div>
+              <div class="wios-node-desc">30/90/365-day contamination forecasts. Infrastructure failure prediction. PFAS migration modeling.</div>
+            </div>
+            <div class="wios-node n-amber">
+              <span class="wios-node-tag tag-dev">IN DEV</span>
+              <div class="wios-node-name">HYDRA™</div>
+              <div class="wios-node-desc">Causal Knowledge Graph (Neo4j). Source attribution. 847 node types. Contamination fingerprinting.</div>
+            </div>
+            <div class="wios-node n-blue">
+              <span class="wios-node-tag tag-live">ACTIVE</span>
+              <div class="wios-node-name">HERALD™</div>
+              <div class="wios-node-desc">Claude API for alert drafting. SendGrid delivery. Automated regulatory notification. B2B intel packages.</div>
+            </div>
+            <div class="wios-node n-gray">
+              <span class="wios-node-tag tag-dev">IN DEV</span>
+              <div class="wios-node-name">LEDGER™</div>
+              <div class="wios-node-desc">SHA-256 hash chain data provenance. Append-only audit log. EPA regulatory export.</div>
+            </div>
+            <div class="wios-node n-gray">
+              <span class="wios-node-tag tag-planned">PLANNED</span>
+              <div class="wios-node-name">NEXUS™</div>
+              <div class="wios-node-desc">40+ agency API connectors. CDC, USGS, NOAA, WHO. Lab network API. Data revenue-share.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wios-connector"></div>
+
+        <!-- Plane 1: Data Fabric -->
+        <div class="wios-layer">
+          <div class="wios-layer-label">🌐 Plane 1 — Real-Time Data Fabric (Three-Layer Input)</div>
+          <div class="wios-row">
+            <div class="wios-node n-blue">
+              <span class="wios-node-tag tag-live">INTEGRATED</span>
+              <div class="wios-node-name">Public Data Layer</div>
+              <div class="wios-node-desc">EPA SDWIS · UCMR5 · EWG Database · USGS NWIS · CDC WONDER · NOAA Climate · EPA ECHO industrial permits. Government data at scale.</div>
+            </div>
+            <div class="wios-node n-amber">
+              <span class="wios-node-tag tag-pilot">BUILDING</span>
+              <div class="wios-node-name">Private Data Layer</div>
+              <div class="wios-node-desc">Municipal SCADA · Utility CCRs · State lab networks · Wastewater NPDES · Industrial sensor feeds. B2B partnership required.</div>
+            </div>
+            <div class="wios-node n-green">
+              <span class="wios-node-tag tag-live">THE MOAT</span>
+              <div class="wios-node-name">Personalized Data Layer</div>
+              <div class="wios-node-desc">Home WTR Hub TDS/flow telemetry · PP02 Smart Cap intake data · WTR App NHS scores · Oura/WHOOP/Apple Health biometrics. Only Generosity™ can collect this.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proprietary Score Registry -->
+      <div style="margin-top:24px;padding:20px;background:var(--surface);border-radius:10px;border:1px solid var(--border)">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--text4);margin-bottom:12px">Proprietary Intelligence Indices — USPTO Provisional 4489-046P Filed</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+          <div style="background:#fff;border-radius:6px;padding:10px;border:1px solid var(--border)"><div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:3px">MWRI™</div><div style="font-size:9px;color:var(--text3)">Municipal Water Readiness Index · Violations + PFAS + Infrastructure + Demographics</div></div>
+          <div style="background:#fff;border-radius:6px;padding:10px;border:1px solid var(--border)"><div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:3px">NHS™</div><div style="font-size:9px;color:var(--text3)">Net Hydration Score · Σ(Intake × Absorption) − Σ(Fluid Loss) + EAI</div></div>
+          <div style="background:#fff;border-radius:6px;padding:10px;border:1px solid var(--border)"><div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:3px">DCS™</div><div style="font-size:9px;color:var(--text3)">Data Confidence Score · Completeness × Source Reliability × Recency × Cross-validation</div></div>
+          <div style="background:#fff;border-radius:6px;padding:10px;border:1px solid var(--border)"><div style="font-size:10px;font-weight:700;color:var(--blue);font-family:var(--mono);margin-bottom:3px">HAE™</div><div style="font-size:9px;color:var(--text3)">Hydration Absorption Efficiency · Ionic state × Mineral balance × Body pH alignment</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TEAM + BOARD ═══════════════════════════ -->
+<section class="compact" id="team" style="background:var(--surface)">
+  <div class="si">
+    <div class="sec-label">Team + Board</div>
+    <div class="sec-title">Founder-led. Board-backed.<br>Channel-ready.</div>
+    <div class="team-grid" style="margin-bottom:24px">
+      <div class="team-card">
+        <div class="team-avatar">MC</div>
+        <div class="team-name">Micah Cravalho</div>
+        <div class="team-role">Founder · CEO · Chairman</div>
+        <div class="team-desc">Architect of the full Generosity™ platform stack. Strategy, product, operations, and investor relations. Series A lead.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">EC</div>
+        <div class="team-name">Ethan Cravalho</div>
+        <div class="team-role">Director of Operations · Engineering</div>
+        <div class="team-desc">Full-stack engineering lead. Owns Sales Engine, WTR App, BLE telemetry pipeline, and all Vercel/Render/Neon infrastructure.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(16,185,129,.1);color:#059669;border-color:rgba(16,185,129,.25)">JC</div>
+        <div class="team-name">Johnny Chen</div>
+        <div class="team-role">Board · Lion Rock Capital</div>
+        <div class="team-desc">Institutional investor. Consumer hardware expertise. Asia-Pacific distribution network. Part of $400K board investment.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(245,158,11,.1);color:#D97706;border-color:rgba(245,158,11,.25)">JG</div>
+        <div class="team-name">JiNan Glasgow George</div>
+        <div class="team-role">Board · NEO IP</div>
+        <div class="team-desc">IP strategy and commercialization expert. Cleared Hydrostasis patent pathway. Critical for USPTO prosecution. $400K board investment.</div>
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--gray-l);color:var(--gray-d);border-color:rgba(166,168,171,.3)">MD</div>
+        <div class="team-name">Megan Dodson</div>
+        <div class="team-role">VP Sales — Pending Approval</div>
+        <div class="team-desc">15-year water treatment veteran. WQA Committee Member. Direct access to national dealer/distributor network. $180K base + equity.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:var(--gray-l);color:var(--gray-d);border-color:rgba(166,168,171,.3)">MS</div>
+        <div class="team-name">Mitch Stone</div>
+        <div class="team-role">Channel Sales — Pending</div>
+        <div class="team-desc">Former Culligan International Director of Sales. Immediate access to independent dealer networks across US. Performance-based comp.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(81,176,230,.1);color:var(--blue-d);border-color:var(--blue-bd)">TT</div>
+        <div class="team-name">Tim Tebow</div>
+        <div class="team-role">Creator JV Candidate · Investor</div>
+        <div class="team-desc">Faith/family/Midwest positioning. NFL + ESPN. Active investor. Creator JV carves out filter ARR, WTR App subs, WIOS licensing.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:rgba(81,176,230,.1);color:var(--blue-d);border-color:var(--blue-bd)">RF</div>
+        <div class="team-name">Rickie Fowler</div>
+        <div class="team-role">Creator JV Candidate · Investor</div>
+        <div class="team-desc">PGA Tour / affluent lifestyle. Existing investor. Positioned for premium DTC and club/course channel. Same carve-out structure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ THE RAISE ═══════════════════════════ -->
+<section id="raise">
+  <div class="si">
+    <div class="sec-label">The Raise</div>
+    <div class="sec-title">$5M Pre-Series A.<br>Clear use. Clear path.</div>
+    <p class="sec-sub">Structured as common stock at $6.64/share on a $20M pre-money valuation. Proven board. Institutional co-investors available. Series A at $150M within 18 months of full platform launch.</p>
+
+    <div class="raise-box">
+      <div class="raise-header">
+        <div class="rh-item">
+          <div class="rh-val">$20M</div>
+          <div class="rh-label">Pre-Money Valuation</div>
+        </div>
+        <div class="rh-item">
+          <div class="rh-val">$5M</div>
+          <div class="rh-label">Raise Target</div>
+        </div>
+        <div class="rh-item">
+          <div class="rh-val">$6.64</div>
+          <div class="rh-label">Price Per Share</div>
+        </div>
+        <div class="rh-item">
+          <div class="rh-val">$150M</div>
+          <div class="rh-label">Series A Target EV</div>
+        </div>
+      </div>
+
+      <table class="ticket-table" style="margin-bottom:32px">
+        <thead>
+          <tr>
+            <th>Investment</th>
+            <th>Shares Issued</th>
+            <th>Ownership %</th>
+            <th>Implied Value @ $150M Series A</th>
+            <th>Net Gain</th>
+            <th>ROI Multiple</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$500K</td>
+            <td>75,290</td><td class="highlight">2.44%</td>
+            <td class="highlight">$3.66M</td><td style="color:var(--green)">$3.16M</td><td style="color:var(--green)">7.3×</td>
+          </tr>
+          <tr>
+            <td>$1,000,000</td>
+            <td>150,580</td><td class="highlight">4.76%</td>
+            <td class="highlight">$7.14M</td><td style="color:var(--green)">$6.14M</td><td style="color:var(--green)">7.1×</td>
+          </tr>
+          <tr>
+            <td>$1,500,000</td>
+            <td>225,870</td><td class="highlight">6.98%</td>
+            <td class="highlight">$10.47M</td><td style="color:var(--green)">$8.97M</td><td style="color:var(--green)">7.0×</td>
+          </tr>
+          <tr>
+            <td>$3,000,000</td>
+            <td>451,741</td><td class="highlight">13.04%</td>
+            <td class="highlight">$19.57M</td><td style="color:var(--green)">$16.57M</td><td style="color:var(--green)">6.5×</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Use of Funds -->
+      <div style="margin-top:8px">
+        <div style="font-size:11px;font-weight:800;color:var(--text);margin-bottom:16px">Use of Funds — $5M Raise</div>
+        <div class="funds-grid">
+          <div class="fund-row">
+            <div class="fund-pct">35%</div>
+            <div style="flex:1">
+              <div class="fund-label">Intelligent WTR Bottle — Production + Certification</div>
+              <div class="fund-desc">DVT (30 units) · FCC/CE/RoHS · iOS CoreBluetooth · App Store · First 100 commercial units @ $125K quoted</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:35%"></div></div>
+            </div>
+          </div>
+          <div class="fund-row">
+            <div class="fund-pct">20%</div>
+            <div style="flex:1">
+              <div class="fund-label">Channel Sales Team (Megan Dodson + Mitch Stone)</div>
+              <div class="fund-desc">WQA network activation · Independent dealer access · PACE Supply + Ferguson expansion</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:20%"></div></div>
+            </div>
+          </div>
+          <div class="fund-row">
+            <div class="fund-pct">20%</div>
+            <div style="flex:1">
+              <div class="fund-label">Threefold Engagement — Engineering + Product</div>
+              <div class="fund-desc">$450K fixed + 1% equity · IWB certification · retro-fit platform · Unspoken PMF research</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:20%"></div></div>
+            </div>
+          </div>
+          <div class="fund-row">
+            <div class="fund-pct">15%</div>
+            <div style="flex:1">
+              <div class="fund-label">WIOS Intelligence Platform — Phase 1</div>
+              <div class="fund-desc">TimescaleDB · Neo4j · USGS NWIS integration · SENTINEL agent · ORACLE v1.0 contamination forecasting</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:15%"></div></div>
+            </div>
+          </div>
+          <div class="fund-row">
+            <div class="fund-pct">7%</div>
+            <div style="flex:1">
+              <div class="fund-label">WTR App — Full Launch + App Store</div>
+              <div class="fund-desc">Free MWIA launch · Subscription paywall · Marketing activation with creator partners</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:7%"></div></div>
+            </div>
+          </div>
+          <div class="fund-row">
+            <div class="fund-pct">3%</div>
+            <div style="flex:1">
+              <div class="fund-label">Operations + IP Defense</div>
+              <div class="fund-desc">USPTO prosecution · Patent maintenance · Legal (Ekwan Rhow, Bird Marella) · Runway buffer</div>
+              <div class="fund-bar-wrap"><div class="fund-bar" style="width:3%;opacity:.4"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IP Summary -->
+    <div style="margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center">
+      <div><div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue)">3</div><div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.1em">Patents Issued</div></div>
+      <div><div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue)">15</div><div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.1em">Patent Pendings</div></div>
+      <div><div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue)">7</div><div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.1em">Trademarks</div></div>
+      <div><div style="font-family:var(--mono);font-size:28px;font-weight:700;color:var(--blue)">24</div><div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.1em">Shareholders</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CTA ═══════════════════════════ -->
+<section class="compact cta-section" style="padding:80px 32px">
+  <div class="si">
+    <div class="cta-box">
+      <h2>The Water Intelligence<br>Category is Being Built Now.</h2>
+      <p>LARQ sold to BRITA for $50–60M on a single claim. Generosity™ has the water quality intelligence, the hardware install base, the B2B distribution wedge, and the data moat. The $5M raise closes the gap to Series A.</p>
+      <button class="btn-white">Request Full Data Room →</button>
+      <div class="cta-contact">micah@generositywater.com · Micah Cravalho, Founder & CEO</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="background:var(--white);border-top:1px solid var(--border);padding:24px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <div style="display:flex;align-items:center;gap:10px">
+    <div style="width:26px;height:26px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center">
+      <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="white" stroke-width="1.4" opacity=".4"/><circle cx="9" cy="9" r="4" stroke="white" stroke-width="1.4" opacity=".65"/><circle cx="9" cy="9" r="1.8" fill="white"/></svg>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:800;color:var(--text)">GENEROSITY™ WATER INTELLIGENCE</div>
+      <div style="font-size:9px;color:var(--text4);letter-spacing:.06em">Drink Intelligently. Give Generously. Live Sustainably.™</div>
+    </div>
+  </div>
+  <div style="font-size:10px;color:var(--text4);font-family:var(--mono)">CONFIDENTIAL · Pre-Series A · $20M Pre-Money · April 2026</div>
+</footer>
+
+<script>
+function scrollTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function showDemo(key){
+  ['sales','wtr','wios'].forEach(k=>{
+    document.getElementById('panel-'+k).classList.remove('on');
+    document.getElementById('tab-'+k).classList.remove('on');
+  });
+  document.getElementById('panel-'+key).classList.add('on');
+  document.getElementById('tab-'+key).classList.add('on');
+}
+
+// Scroll-triggered animations
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+
+document.querySelectorAll('.stat-card,.econ-card,.team-card,.wios-node,.fund-row,.phase-card').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(16px)';
+  el.style.transition='opacity .5s ease, transform .5s ease';
+  observer.observe(el);
+});
+
+// Active nav link on scroll
+const sections=['hero','opportunity','platform','roadmap','economics','financials','wios','team','raise'];
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-100)current=id;
+  });
+  document.querySelectorAll('.nav-link').forEach(l=>{
+    l.classList.remove('active');
+    if(l.textContent.toLowerCase().includes(current.substring(0,4)))l.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
