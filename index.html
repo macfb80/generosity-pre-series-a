@@ -372,9 +372,10 @@
   .afitem h3{font-family:'Montserrat';font-weight:800;font-size:16px;margin:0 0 4px;letter-spacing:-.01em;}
   .afitem p{margin:0;font-size:14px;color:var(--ink-soft);}
   .appcta{display:inline-block;}
-  .appctas{display:flex;gap:32px;flex-wrap:wrap;margin-top:34px;}
-  .appcta-col{display:flex;flex-direction:column;gap:10px;}
+  .appctas{display:flex;gap:32px;flex-wrap:wrap;margin-top:34px;align-items:flex-start;}
+  .appcta-col{display:flex;flex-direction:column;align-items:flex-start;gap:10px;max-width:340px;}
   .appctatag{font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);}
+  .appctahook{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink-soft);}
   @media(max-width:760px){.appphone img{max-width:180px;}.apparrow{transform:rotate(90deg);}}
 </style>
 </head>
@@ -524,11 +525,12 @@
     </div>
     <div class="appctas">
       <div class="appcta-col">
-        <span class="appctatag">Free, public build</span>
-        <a class="btn-primary appcta reveal" href="https://app.generositywater.com" target="_blank" rel="noopener noreferrer">Try it free at app.generositywater.com</a>
+        <span class="appctatag">Free Public Build</span>
+        <p class="appctahook">See your own water quality, run Water Watch on your zip code, and try the free hydration tracking, live, right now.</p>
+        <a class="btn-primary appcta reveal" href="https://app.generositywater.com" target="_blank" rel="noopener noreferrer">Try it live</a>
       </div>
       <div class="appcta-col">
-        <span class="appctatag">Full WIOS experience</span>
+        <span class="appctatag">Full Water Intelligence Experience</span>
         <a class="btn-ghost appcta reveal" href="mailto:micah@generositywater.com?subject=Founder%20Demo%20Access%20Request&amp;body=Hi%20Micah%2C%0A%0AI%27d%20like%20to%20request%20founder%20demo%20access%20to%20the%20WTR%20App.%0A%0AName%3A%0AFirm%3A%0A">Request founder demo access</a>
       </div>
     </div>
